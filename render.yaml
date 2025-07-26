@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: your-app-name
-    env: python
-    buildCommand: pip install -r backend/requirements.txt
-    startCommand: gunicorn backend.app:app  # change if needed
-    workingDir: backend
-    plan: free
