@@ -1,16 +1,21 @@
 FROM python:3.10-slim
 
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
 # Set working directory
 WORKDIR /app
 
-# Copy only requirements first for caching
+# Install pip dependencies
 COPY requirements.txt .
-
-# Install dependencies
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Copy the rest of the code
+# Copy app code
 COPY . .
 
-# Run your application
-CMD ["python", "main.py"]
+# Expose the port
+EXPOSE 8000
+
+# Set entrypoint (adjust path if needed)
+CMD ["uvicorn", "backend.app:app", "--host", "0.0.0.0", "--port", "8000"]
