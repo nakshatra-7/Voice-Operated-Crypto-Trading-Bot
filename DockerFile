@@ -1,21 +1,22 @@
+# Use an official Python image
 FROM python:3.10-slim
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-# Set working directory
+# Set work directory
 WORKDIR /app
 
-# Install pip dependencies
+# Install dependencies
 COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Copy app code
+# Copy the project files
 COPY . .
 
-# Expose the port
+# Expose the port your app runs on
 EXPOSE 8000
 
-# Set entrypoint (adjust path if needed)
+# Start the app
 CMD ["uvicorn", "backend.app:app", "--host", "0.0.0.0", "--port", "8000"]
