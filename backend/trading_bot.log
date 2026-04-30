@@ -2993,3 +2993,320 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
 2025-06-19 23:35:40,198 - INFO - Cleaned up WebSocket connection for session 9b17edfe-4a73-40d9-872c-c37b54973ed1
 2025-06-19 23:35:40,199 - INFO - Ending call session: 9b17edfe-4a73-40d9-872c-c37b54973ed1
 2025-06-19 23:35:40,199 - INFO - Call session 9b17edfe-4a73-40d9-872c-c37b54973ed1 ended
+2026-04-30 18:23:01,177 - INFO - Starting new call session: d94a5a78-8896-4b5d-b24b-12a890432a30 for user: Trader
+2026-04-30 18:23:01,179 - INFO - Session initialized with state: await_exchange
+2026-04-30 18:23:01,179 - INFO - Call session d94a5a78-8896-4b5d-b24b-12a890432a30 ready. Active sessions: ['d94a5a78-8896-4b5d-b24b-12a890432a30']
+2026-04-30 18:23:01,180 - INFO - Simulating Bland.ai call for session d94a5a78-8896-4b5d-b24b-12a890432a30
+2026-04-30 18:23:01,219 - INFO - WebSocket connection established for session d94a5a78-8896-4b5d-b24b-12a890432a30
+2026-04-30 18:23:01,225 - INFO - Sent initial greeting for session d94a5a78-8896-4b5d-b24b-12a890432a30
+2026-04-30 18:23:02,181 - INFO - Bland.ai call simulation completed for session d94a5a78-8896-4b5d-b24b-12a890432a30
+2026-04-30 18:34:03,800 - INFO - WebSocket disconnected for session d94a5a78-8896-4b5d-b24b-12a890432a30
+2026-04-30 18:34:03,804 - INFO - Cleaned up WebSocket connection for session d94a5a78-8896-4b5d-b24b-12a890432a30
+2026-04-30 18:44:11,334 - INFO - Fetching price for BTC-USDT from OKX (attempt 1)
+2026-04-30 18:44:11,360 - INFO - Making request to: https://www.okx.com/api/v5/market/ticker?instId=BTC-USDT
+2026-04-30 18:44:11,368 - INFO - Fetching price for ETH-USDT from OKX (attempt 1)
+2026-04-30 18:44:11,374 - INFO - Making request to: https://www.okx.com/api/v5/market/ticker?instId=ETH-USDT
+2026-04-30 18:44:11,374 - INFO - Fetching price for XRP-USDT from Bybit (attempt 1)
+2026-04-30 18:44:11,380 - INFO - Making request to: https://api.bybit.com/v5/market/tickers?category=spot&symbol=XRP-USDT
+2026-04-30 18:44:11,380 - INFO - Fetching price for BTC-PERPETUAL from Deribit (attempt 1)
+2026-04-30 18:44:11,385 - INFO - Making request to: https://www.deribit.com/api/v2/public/ticker?symbol=BTC-PERPETUAL
+2026-04-30 18:44:11,386 - INFO - Fetching price for ETH-BTC from Binance (attempt 1)
+2026-04-30 18:44:11,391 - INFO - Making request to: https://api.binance.com/api/v3/ticker/price?symbol=ETH-BTC
+2026-04-30 18:44:11,391 - INFO - Fetching price for DOT-USDT from Bybit (attempt 1)
+2026-04-30 18:44:11,396 - INFO - Making request to: https://api.bybit.com/v5/market/tickers?category=spot&symbol=DOT-USDT
+2026-04-30 18:44:11,588 - INFO - HTTP Request: GET https://api.bybit.com/v5/market/tickers?category=spot&symbol=XRP-USDT "HTTP/1.1 200 OK"
+2026-04-30 18:44:11,588 - INFO - Response from Bybit: {'retCode': 10001, 'retMsg': 'Not supported symbols', 'result': {}, 'retExtInfo': {}, 'time': 1777554851534}
+2026-04-30 18:44:11,589 - INFO - HTTP Request: GET https://api.bybit.com/v5/market/tickers?category=spot&symbol=DOT-USDT "HTTP/1.1 200 OK"
+2026-04-30 18:44:11,595 - INFO - Strategy 2 - Making request to: https://api.bybit.com/api/v1/ticker?symbol=XRPUSDT
+2026-04-30 18:44:11,595 - INFO - Response from Bybit: {'retCode': 10001, 'retMsg': 'Not supported symbols', 'result': {}, 'retExtInfo': {}, 'time': 1777554851536}
+2026-04-30 18:44:11,601 - INFO - Strategy 2 - Making request to: https://api.bybit.com/api/v1/ticker?symbol=DOTUSDT
+2026-04-30 18:44:11,672 - INFO - HTTP Request: GET https://api.binance.com/api/v3/ticker/price?symbol=ETH-BTC "HTTP/1.1 400 Bad Request"
+2026-04-30 18:44:11,672 - ERROR - Strategy 1 failed for ETH-BTC: Client error '400 Bad Request' for url 'https://api.binance.com/api/v3/ticker/price?symbol=ETH-BTC'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-04-30 18:44:11,679 - INFO - Strategy 2 - Making request to: https://api.binance.com/api/v1/ticker?symbol=ETHBTC
+2026-04-30 18:44:11,723 - INFO - HTTP Request: GET https://api.bybit.com/api/v1/ticker?symbol=XRPUSDT "HTTP/1.1 404 Not Found"
+2026-04-30 18:44:11,723 - ERROR - Strategy 2 failed for XRP-USDT: Client error '404 Not Found' for url 'https://api.bybit.com/api/v1/ticker?symbol=XRPUSDT'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:44:11,724 - WARNING - Using mock price for XRP-USDT: $1.7177
+2026-04-30 18:44:11,738 - INFO - HTTP Request: GET https://api.bybit.com/api/v1/ticker?symbol=DOTUSDT "HTTP/1.1 404 Not Found"
+2026-04-30 18:44:11,738 - ERROR - Strategy 2 failed for DOT-USDT: Client error '404 Not Found' for url 'https://api.bybit.com/api/v1/ticker?symbol=DOTUSDT'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:44:11,738 - WARNING - Using mock price for DOT-USDT: $27.3511
+2026-04-30 18:44:11,768 - INFO - HTTP Request: GET https://www.deribit.com/api/v2/public/ticker?symbol=BTC-PERPETUAL "HTTP/1.1 400 Bad Request"
+2026-04-30 18:44:11,769 - ERROR - Strategy 1 failed for BTC-PERPETUAL: Client error '400 Bad Request' for url 'https://www.deribit.com/api/v2/public/ticker?symbol=BTC-PERPETUAL'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-04-30 18:44:11,774 - INFO - Strategy 2 - Making request to: https://www.deribit.com/api/v1/ticker?symbol=BTCPERPETUAL
+2026-04-30 18:44:11,871 - INFO - HTTP Request: GET https://api.binance.com/api/v1/ticker?symbol=ETHBTC "HTTP/1.1 404 Not Found"
+2026-04-30 18:44:11,872 - ERROR - Strategy 2 failed for ETH-BTC: Client error '404 Not Found' for url 'https://api.binance.com/api/v1/ticker?symbol=ETHBTC'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:44:11,872 - WARNING - Using mock price for ETH-BTC: $46890.9031
+2026-04-30 18:44:11,991 - INFO - HTTP Request: GET https://www.deribit.com/api/v1/ticker?symbol=BTCPERPETUAL "HTTP/1.1 404 Not Found"
+2026-04-30 18:44:11,994 - ERROR - Strategy 2 failed for BTC-PERPETUAL: Client error '404 Not Found' for url 'https://www.deribit.com/api/v1/ticker?symbol=BTCPERPETUAL'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:44:11,994 - WARNING - Using mock price for BTC-PERPETUAL: $45099.6678
+2026-04-30 18:44:21,407 - ERROR - Strategy 1 failed for BTC-USDT: 
+2026-04-30 18:44:21,437 - INFO - Strategy 2 - Making request to: https://www.okx.com/api/v1/ticker?symbol=BTCUSDT
+2026-04-30 18:44:21,440 - ERROR - Strategy 1 failed for ETH-USDT: 
+2026-04-30 18:44:21,453 - INFO - Strategy 2 - Making request to: https://www.okx.com/api/v1/ticker?symbol=ETHUSDT
+2026-04-30 18:44:31,443 - ERROR - Strategy 2 failed for BTC-USDT: 
+2026-04-30 18:44:31,447 - WARNING - Using mock price for BTC-USDT: $43304.6347
+2026-04-30 18:44:31,455 - ERROR - Strategy 2 failed for ETH-USDT: 
+2026-04-30 18:44:31,456 - WARNING - Using mock price for ETH-USDT: $3170.3203
+2026-04-30 18:45:08,134 - INFO - Fetching price for BTC-USDT from OKX (attempt 1)
+2026-04-30 18:45:08,143 - INFO - Making request to: https://www.okx.com/api/v5/market/ticker?instId=BTC-USDT
+2026-04-30 18:45:08,146 - INFO - Fetching price for ETH-USDT from OKX (attempt 1)
+2026-04-30 18:45:08,152 - INFO - Making request to: https://www.okx.com/api/v5/market/ticker?instId=ETH-USDT
+2026-04-30 18:45:08,152 - INFO - Fetching price for XRP-USDT from Bybit (attempt 1)
+2026-04-30 18:45:08,158 - INFO - Making request to: https://api.bybit.com/v5/market/tickers?category=spot&symbol=XRP-USDT
+2026-04-30 18:45:08,158 - INFO - Fetching price for BTC-PERPETUAL from Deribit (attempt 1)
+2026-04-30 18:45:08,163 - INFO - Making request to: https://www.deribit.com/api/v2/public/ticker?symbol=BTC-PERPETUAL
+2026-04-30 18:45:08,164 - INFO - Fetching price for ETH-BTC from Binance (attempt 1)
+2026-04-30 18:45:08,169 - INFO - Making request to: https://api.binance.com/api/v3/ticker/price?symbol=ETH-BTC
+2026-04-30 18:45:08,169 - INFO - Fetching price for DOT-USDT from Bybit (attempt 1)
+2026-04-30 18:45:08,174 - INFO - Making request to: https://api.bybit.com/v5/market/tickers?category=spot&symbol=DOT-USDT
+2026-04-30 18:45:08,329 - INFO - HTTP Request: GET https://api.bybit.com/v5/market/tickers?category=spot&symbol=XRP-USDT "HTTP/1.1 200 OK"
+2026-04-30 18:45:08,329 - INFO - Response from Bybit: {'retCode': 10001, 'retMsg': 'Not supported symbols', 'result': {}, 'retExtInfo': {}, 'time': 1777554908271}
+2026-04-30 18:45:08,334 - INFO - Strategy 2 - Making request to: https://api.bybit.com/api/v1/ticker?symbol=XRPUSDT
+2026-04-30 18:45:08,359 - INFO - HTTP Request: GET https://api.bybit.com/v5/market/tickers?category=spot&symbol=DOT-USDT "HTTP/1.1 200 OK"
+2026-04-30 18:45:08,359 - INFO - Response from Bybit: {'retCode': 10001, 'retMsg': 'Not supported symbols', 'result': {}, 'retExtInfo': {}, 'time': 1777554908306}
+2026-04-30 18:45:08,366 - INFO - Strategy 2 - Making request to: https://api.bybit.com/api/v1/ticker?symbol=DOTUSDT
+2026-04-30 18:45:08,416 - INFO - HTTP Request: GET https://api.binance.com/api/v3/ticker/price?symbol=ETH-BTC "HTTP/1.1 400 Bad Request"
+2026-04-30 18:45:08,418 - ERROR - Strategy 1 failed for ETH-BTC: Client error '400 Bad Request' for url 'https://api.binance.com/api/v3/ticker/price?symbol=ETH-BTC'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-04-30 18:45:08,424 - INFO - Strategy 2 - Making request to: https://api.binance.com/api/v1/ticker?symbol=ETHBTC
+2026-04-30 18:45:08,476 - INFO - HTTP Request: GET https://api.bybit.com/api/v1/ticker?symbol=XRPUSDT "HTTP/1.1 404 Not Found"
+2026-04-30 18:45:08,479 - ERROR - Strategy 2 failed for XRP-USDT: Client error '404 Not Found' for url 'https://api.bybit.com/api/v1/ticker?symbol=XRPUSDT'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:45:08,479 - WARNING - Using mock price for XRP-USDT: $2.3363
+2026-04-30 18:45:08,502 - INFO - HTTP Request: GET https://api.bybit.com/api/v1/ticker?symbol=DOTUSDT "HTTP/1.1 404 Not Found"
+2026-04-30 18:45:08,502 - ERROR - Strategy 2 failed for DOT-USDT: Client error '404 Not Found' for url 'https://api.bybit.com/api/v1/ticker?symbol=DOTUSDT'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:45:08,502 - WARNING - Using mock price for DOT-USDT: $27.8785
+2026-04-30 18:45:08,619 - INFO - HTTP Request: GET https://api.binance.com/api/v1/ticker?symbol=ETHBTC "HTTP/1.1 404 Not Found"
+2026-04-30 18:45:08,620 - ERROR - Strategy 2 failed for ETH-BTC: Client error '404 Not Found' for url 'https://api.binance.com/api/v1/ticker?symbol=ETHBTC'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:45:08,620 - WARNING - Using mock price for ETH-BTC: $44514.4169
+2026-04-30 18:45:08,681 - INFO - HTTP Request: GET https://www.deribit.com/api/v2/public/ticker?symbol=BTC-PERPETUAL "HTTP/1.1 400 Bad Request"
+2026-04-30 18:45:08,682 - ERROR - Strategy 1 failed for BTC-PERPETUAL: Client error '400 Bad Request' for url 'https://www.deribit.com/api/v2/public/ticker?symbol=BTC-PERPETUAL'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-04-30 18:45:08,687 - INFO - Strategy 2 - Making request to: https://www.deribit.com/api/v1/ticker?symbol=BTCPERPETUAL
+2026-04-30 18:45:09,095 - INFO - HTTP Request: GET https://www.deribit.com/api/v1/ticker?symbol=BTCPERPETUAL "HTTP/1.1 404 Not Found"
+2026-04-30 18:45:09,097 - ERROR - Strategy 2 failed for BTC-PERPETUAL: Client error '404 Not Found' for url 'https://www.deribit.com/api/v1/ticker?symbol=BTCPERPETUAL'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:45:09,097 - WARNING - Using mock price for BTC-PERPETUAL: $44275.4354
+2026-04-30 18:45:10,635 - ERROR - Strategy 1 failed for BTC-USDT: All connection attempts failed
+2026-04-30 18:45:10,652 - INFO - Strategy 2 - Making request to: https://www.okx.com/api/v1/ticker?symbol=BTCUSDT
+2026-04-30 18:45:10,653 - ERROR - Strategy 1 failed for ETH-USDT: All connection attempts failed
+2026-04-30 18:45:10,665 - INFO - Strategy 2 - Making request to: https://www.okx.com/api/v1/ticker?symbol=ETHUSDT
+2026-04-30 18:45:10,917 - WARNING - Using fallback market price for BTC-USDT: 
+2026-04-30 18:45:10,917 - WARNING - Using fallback market price for ETH-USDT: 
+2026-04-30 18:46:05,933 - INFO - Fetching price for BTC-USDT from OKX (attempt 1)
+2026-04-30 18:46:05,942 - INFO - Making request to: https://www.okx.com/api/v5/market/ticker?instId=BTC-USDT
+2026-04-30 18:46:05,952 - INFO - Fetching price for ETH-USDT from OKX (attempt 1)
+2026-04-30 18:46:05,958 - INFO - Making request to: https://www.okx.com/api/v5/market/ticker?instId=ETH-USDT
+2026-04-30 18:46:05,959 - INFO - Fetching price for XRP-USDT from Bybit (attempt 1)
+2026-04-30 18:46:05,965 - INFO - Making request to: https://api.bybit.com/v5/market/tickers?category=spot&symbol=XRP-USDT
+2026-04-30 18:46:05,965 - INFO - Fetching price for BTC-PERPETUAL from Deribit (attempt 1)
+2026-04-30 18:46:05,971 - INFO - Making request to: https://www.deribit.com/api/v2/public/ticker?symbol=BTC-PERPETUAL
+2026-04-30 18:46:05,971 - INFO - Fetching price for ETH-BTC from Binance (attempt 1)
+2026-04-30 18:46:05,986 - INFO - Making request to: https://api.binance.com/api/v3/ticker/price?symbol=ETH-BTC
+2026-04-30 18:46:05,988 - INFO - Fetching price for DOT-USDT from Bybit (attempt 1)
+2026-04-30 18:46:06,000 - INFO - Making request to: https://api.bybit.com/v5/market/tickers?category=spot&symbol=DOT-USDT
+2026-04-30 18:46:06,222 - INFO - HTTP Request: GET https://api.bybit.com/v5/market/tickers?category=spot&symbol=XRP-USDT "HTTP/1.1 200 OK"
+2026-04-30 18:46:06,223 - INFO - HTTP Request: GET https://api.bybit.com/v5/market/tickers?category=spot&symbol=DOT-USDT "HTTP/1.1 200 OK"
+2026-04-30 18:46:06,224 - INFO - Response from Bybit: {'retCode': 10001, 'retMsg': 'Not supported symbols', 'result': {}, 'retExtInfo': {}, 'time': 1777554966158}
+2026-04-30 18:46:06,224 - INFO - Response from Bybit: {'retCode': 10001, 'retMsg': 'Not supported symbols', 'result': {}, 'retExtInfo': {}, 'time': 1777554966166}
+2026-04-30 18:46:06,238 - INFO - Strategy 2 - Making request to: https://api.bybit.com/api/v1/ticker?symbol=XRPUSDT
+2026-04-30 18:46:06,244 - INFO - Strategy 2 - Making request to: https://api.bybit.com/api/v1/ticker?symbol=DOTUSDT
+2026-04-30 18:46:06,256 - INFO - HTTP Request: GET https://www.deribit.com/api/v2/public/ticker?symbol=BTC-PERPETUAL "HTTP/1.1 400 Bad Request"
+2026-04-30 18:46:06,256 - ERROR - Strategy 1 failed for BTC-PERPETUAL: Client error '400 Bad Request' for url 'https://www.deribit.com/api/v2/public/ticker?symbol=BTC-PERPETUAL'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-04-30 18:46:06,262 - INFO - Strategy 2 - Making request to: https://www.deribit.com/api/v1/ticker?symbol=BTCPERPETUAL
+2026-04-30 18:46:06,329 - INFO - HTTP Request: GET https://api.binance.com/api/v3/ticker/price?symbol=ETH-BTC "HTTP/1.1 400 Bad Request"
+2026-04-30 18:46:06,331 - ERROR - Strategy 1 failed for ETH-BTC: Client error '400 Bad Request' for url 'https://api.binance.com/api/v3/ticker/price?symbol=ETH-BTC'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-04-30 18:46:06,340 - INFO - Strategy 2 - Making request to: https://api.binance.com/api/v1/ticker?symbol=ETHBTC
+2026-04-30 18:46:06,382 - INFO - HTTP Request: GET https://api.bybit.com/api/v1/ticker?symbol=DOTUSDT "HTTP/1.1 404 Not Found"
+2026-04-30 18:46:06,383 - INFO - HTTP Request: GET https://api.bybit.com/api/v1/ticker?symbol=XRPUSDT "HTTP/1.1 404 Not Found"
+2026-04-30 18:46:06,383 - ERROR - Strategy 2 failed for DOT-USDT: Client error '404 Not Found' for url 'https://api.bybit.com/api/v1/ticker?symbol=DOTUSDT'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:46:06,383 - WARNING - Using mock price for DOT-USDT: $25.054
+2026-04-30 18:46:06,383 - ERROR - Strategy 2 failed for XRP-USDT: Client error '404 Not Found' for url 'https://api.bybit.com/api/v1/ticker?symbol=XRPUSDT'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:46:06,384 - WARNING - Using mock price for XRP-USDT: $2.2132
+2026-04-30 18:46:06,534 - INFO - HTTP Request: GET https://api.binance.com/api/v1/ticker?symbol=ETHBTC "HTTP/1.1 404 Not Found"
+2026-04-30 18:46:06,534 - ERROR - Strategy 2 failed for ETH-BTC: Client error '404 Not Found' for url 'https://api.binance.com/api/v1/ticker?symbol=ETHBTC'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:46:06,534 - WARNING - Using mock price for ETH-BTC: $0.064781
+2026-04-30 18:46:06,592 - INFO - HTTP Request: GET https://www.deribit.com/api/v1/ticker?symbol=BTCPERPETUAL "HTTP/1.1 404 Not Found"
+2026-04-30 18:46:06,594 - ERROR - Strategy 2 failed for BTC-PERPETUAL: Client error '404 Not Found' for url 'https://www.deribit.com/api/v1/ticker?symbol=BTCPERPETUAL'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:46:06,595 - WARNING - Using mock price for BTC-PERPETUAL: $46524.1082
+2026-04-30 18:46:08,435 - ERROR - Strategy 1 failed for BTC-USDT: All connection attempts failed
+2026-04-30 18:46:08,451 - INFO - Strategy 2 - Making request to: https://www.okx.com/api/v1/ticker?symbol=BTCUSDT
+2026-04-30 18:46:08,453 - ERROR - Strategy 1 failed for ETH-USDT: All connection attempts failed
+2026-04-30 18:46:08,465 - INFO - Strategy 2 - Making request to: https://www.okx.com/api/v1/ticker?symbol=ETHUSDT
+2026-04-30 18:46:08,717 - WARNING - Using fallback market price for BTC-USDT: 
+2026-04-30 18:46:08,717 - WARNING - Using fallback market price for ETH-USDT: 
+2026-04-30 18:46:08,720 - INFO - Fetching price for BTC-USDT from OKX (attempt 1)
+2026-04-30 18:46:08,730 - INFO - Making request to: https://www.okx.com/api/v5/market/ticker?instId=BTC-USDT
+2026-04-30 18:46:08,731 - INFO - Fetching price for ETH-USDT from OKX (attempt 1)
+2026-04-30 18:46:08,738 - INFO - Making request to: https://www.okx.com/api/v5/market/ticker?instId=ETH-USDT
+2026-04-30 18:46:08,739 - INFO - Fetching price for XRP-USDT from Bybit (attempt 1)
+2026-04-30 18:46:08,746 - INFO - Making request to: https://api.bybit.com/v5/market/tickers?category=spot&symbol=XRP-USDT
+2026-04-30 18:46:08,747 - INFO - Fetching price for BTC-PERPETUAL from Deribit (attempt 1)
+2026-04-30 18:46:08,753 - INFO - Making request to: https://www.deribit.com/api/v2/public/ticker?symbol=BTC-PERPETUAL
+2026-04-30 18:46:08,753 - INFO - Fetching price for ETH-BTC from Binance (attempt 1)
+2026-04-30 18:46:08,759 - INFO - Making request to: https://api.binance.com/api/v3/ticker/price?symbol=ETH-BTC
+2026-04-30 18:46:08,760 - INFO - Fetching price for DOT-USDT from Bybit (attempt 1)
+2026-04-30 18:46:08,766 - INFO - Making request to: https://api.bybit.com/v5/market/tickers?category=spot&symbol=DOT-USDT
+2026-04-30 18:46:08,909 - INFO - HTTP Request: GET https://api.bybit.com/v5/market/tickers?category=spot&symbol=XRP-USDT "HTTP/1.1 200 OK"
+2026-04-30 18:46:08,910 - INFO - Response from Bybit: {'retCode': 10001, 'retMsg': 'Not supported symbols', 'result': {}, 'retExtInfo': {}, 'time': 1777554968858}
+2026-04-30 18:46:08,916 - INFO - Strategy 2 - Making request to: https://api.bybit.com/api/v1/ticker?symbol=XRPUSDT
+2026-04-30 18:46:08,917 - INFO - HTTP Request: GET https://api.bybit.com/v5/market/tickers?category=spot&symbol=DOT-USDT "HTTP/1.1 200 OK"
+2026-04-30 18:46:08,917 - INFO - Response from Bybit: {'retCode': 10001, 'retMsg': 'Not supported symbols', 'result': {}, 'retExtInfo': {}, 'time': 1777554968860}
+2026-04-30 18:46:08,924 - INFO - Strategy 2 - Making request to: https://api.bybit.com/api/v1/ticker?symbol=DOTUSDT
+2026-04-30 18:46:08,975 - INFO - HTTP Request: GET https://api.binance.com/api/v3/ticker/price?symbol=ETH-BTC "HTTP/1.1 400 Bad Request"
+2026-04-30 18:46:08,976 - ERROR - Strategy 1 failed for ETH-BTC: Client error '400 Bad Request' for url 'https://api.binance.com/api/v3/ticker/price?symbol=ETH-BTC'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-04-30 18:46:08,982 - INFO - Strategy 2 - Making request to: https://api.binance.com/api/v1/ticker?symbol=ETHBTC
+2026-04-30 18:46:09,053 - INFO - HTTP Request: GET https://api.bybit.com/api/v1/ticker?symbol=XRPUSDT "HTTP/1.1 404 Not Found"
+2026-04-30 18:46:09,054 - INFO - HTTP Request: GET https://api.bybit.com/api/v1/ticker?symbol=DOTUSDT "HTTP/1.1 404 Not Found"
+2026-04-30 18:46:09,054 - ERROR - Strategy 2 failed for XRP-USDT: Client error '404 Not Found' for url 'https://api.bybit.com/api/v1/ticker?symbol=XRPUSDT'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:46:09,054 - WARNING - Using mock price for XRP-USDT: $1.9828
+2026-04-30 18:46:09,054 - ERROR - Strategy 2 failed for DOT-USDT: Client error '404 Not Found' for url 'https://api.bybit.com/api/v1/ticker?symbol=DOTUSDT'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:46:09,054 - WARNING - Using mock price for DOT-USDT: $21.4855
+2026-04-30 18:46:09,080 - INFO - HTTP Request: GET https://www.deribit.com/api/v2/public/ticker?symbol=BTC-PERPETUAL "HTTP/1.1 400 Bad Request"
+2026-04-30 18:46:09,080 - ERROR - Strategy 1 failed for BTC-PERPETUAL: Client error '400 Bad Request' for url 'https://www.deribit.com/api/v2/public/ticker?symbol=BTC-PERPETUAL'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-04-30 18:46:09,086 - INFO - Strategy 2 - Making request to: https://www.deribit.com/api/v1/ticker?symbol=BTCPERPETUAL
+2026-04-30 18:46:09,179 - INFO - HTTP Request: GET https://api.binance.com/api/v1/ticker?symbol=ETHBTC "HTTP/1.1 404 Not Found"
+2026-04-30 18:46:09,179 - ERROR - Strategy 2 failed for ETH-BTC: Client error '404 Not Found' for url 'https://api.binance.com/api/v1/ticker?symbol=ETHBTC'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:46:09,179 - WARNING - Using mock price for ETH-BTC: $0.066024
+2026-04-30 18:46:09,512 - INFO - HTTP Request: GET https://www.deribit.com/api/v1/ticker?symbol=BTCPERPETUAL "HTTP/1.1 404 Not Found"
+2026-04-30 18:46:09,514 - ERROR - Strategy 2 failed for BTC-PERPETUAL: Client error '404 Not Found' for url 'https://www.deribit.com/api/v1/ticker?symbol=BTCPERPETUAL'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:46:09,514 - WARNING - Using mock price for BTC-PERPETUAL: $45993.8811
+2026-04-30 18:46:11,222 - ERROR - Strategy 1 failed for BTC-USDT: All connection attempts failed
+2026-04-30 18:46:11,235 - INFO - Strategy 2 - Making request to: https://www.okx.com/api/v1/ticker?symbol=BTCUSDT
+2026-04-30 18:46:11,236 - ERROR - Strategy 1 failed for ETH-USDT: All connection attempts failed
+2026-04-30 18:46:11,246 - INFO - Strategy 2 - Making request to: https://www.okx.com/api/v1/ticker?symbol=ETHUSDT
+2026-04-30 18:46:11,496 - WARNING - Using fallback market price for BTC-USDT: 
+2026-04-30 18:46:11,499 - WARNING - Using fallback market price for ETH-USDT: 
+2026-04-30 18:46:48,492 - INFO - Starting new call session: 9b3ec950-a485-45d4-9abd-972542460834 for user: Trader
+2026-04-30 18:46:48,493 - INFO - Session initialized with state: await_exchange
+2026-04-30 18:46:48,493 - INFO - Call session 9b3ec950-a485-45d4-9abd-972542460834 ready. Active sessions: ['9b3ec950-a485-45d4-9abd-972542460834']
+2026-04-30 18:46:48,494 - INFO - Simulating Bland.ai call for session 9b3ec950-a485-45d4-9abd-972542460834
+2026-04-30 18:46:48,509 - INFO - WebSocket connection established for session 9b3ec950-a485-45d4-9abd-972542460834
+2026-04-30 18:46:48,511 - INFO - Sent initial greeting for session 9b3ec950-a485-45d4-9abd-972542460834
+2026-04-30 18:46:49,494 - INFO - Bland.ai call simulation completed for session 9b3ec950-a485-45d4-9abd-972542460834
+2026-04-30 18:47:35,551 - INFO - Fetching price for BTC-USDT from OKX (attempt 1)
+2026-04-30 18:47:35,579 - INFO - Making request to: https://www.okx.com/api/v5/market/ticker?instId=BTC-USDT
+2026-04-30 18:47:35,580 - INFO - Fetching price for ETH-USDT from OKX (attempt 1)
+2026-04-30 18:47:35,585 - INFO - Making request to: https://www.okx.com/api/v5/market/ticker?instId=ETH-USDT
+2026-04-30 18:47:35,585 - INFO - Fetching price for XRP-USDT from Bybit (attempt 1)
+2026-04-30 18:47:35,591 - INFO - Making request to: https://api.bybit.com/v5/market/tickers?category=spot&symbol=XRP-USDT
+2026-04-30 18:47:35,604 - INFO - Fetching price for BTC-PERPETUAL from Deribit (attempt 1)
+2026-04-30 18:47:35,610 - INFO - Making request to: https://www.deribit.com/api/v2/public/ticker?symbol=BTC-PERPETUAL
+2026-04-30 18:47:35,610 - INFO - Fetching price for ETH-BTC from Binance (attempt 1)
+2026-04-30 18:47:35,615 - INFO - Making request to: https://api.binance.com/api/v3/ticker/price?symbol=ETH-BTC
+2026-04-30 18:47:35,615 - INFO - Fetching price for DOT-USDT from Bybit (attempt 1)
+2026-04-30 18:47:35,620 - INFO - Making request to: https://api.bybit.com/v5/market/tickers?category=spot&symbol=DOT-USDT
+2026-04-30 18:47:35,827 - INFO - HTTP Request: GET https://api.bybit.com/v5/market/tickers?category=spot&symbol=XRP-USDT "HTTP/1.1 200 OK"
+2026-04-30 18:47:35,828 - INFO - Response from Bybit: {'retCode': 10001, 'retMsg': 'Not supported symbols', 'result': {}, 'retExtInfo': {}, 'time': 1777555055777}
+2026-04-30 18:47:35,828 - INFO - HTTP Request: GET https://api.bybit.com/v5/market/tickers?category=spot&symbol=DOT-USDT "HTTP/1.1 200 OK"
+2026-04-30 18:47:35,833 - INFO - Strategy 2 - Making request to: https://api.bybit.com/api/v1/ticker?symbol=XRPUSDT
+2026-04-30 18:47:35,834 - INFO - Response from Bybit: {'retCode': 10001, 'retMsg': 'Not supported symbols', 'result': {}, 'retExtInfo': {}, 'time': 1777555055777}
+2026-04-30 18:47:35,839 - INFO - Strategy 2 - Making request to: https://api.bybit.com/api/v1/ticker?symbol=DOTUSDT
+2026-04-30 18:47:35,893 - INFO - HTTP Request: GET https://www.deribit.com/api/v2/public/ticker?symbol=BTC-PERPETUAL "HTTP/1.1 400 Bad Request"
+2026-04-30 18:47:35,894 - ERROR - Strategy 1 failed for BTC-PERPETUAL: Client error '400 Bad Request' for url 'https://www.deribit.com/api/v2/public/ticker?symbol=BTC-PERPETUAL'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-04-30 18:47:35,900 - INFO - Strategy 2 - Making request to: https://www.deribit.com/api/v1/ticker?symbol=BTCPERPETUAL
+2026-04-30 18:47:35,915 - INFO - HTTP Request: GET https://api.binance.com/api/v3/ticker/price?symbol=ETH-BTC "HTTP/1.1 400 Bad Request"
+2026-04-30 18:47:35,916 - ERROR - Strategy 1 failed for ETH-BTC: Client error '400 Bad Request' for url 'https://api.binance.com/api/v3/ticker/price?symbol=ETH-BTC'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-04-30 18:47:35,920 - INFO - Strategy 2 - Making request to: https://api.binance.com/api/v1/ticker?symbol=ETHBTC
+2026-04-30 18:47:35,964 - INFO - HTTP Request: GET https://api.bybit.com/api/v1/ticker?symbol=XRPUSDT "HTTP/1.1 404 Not Found"
+2026-04-30 18:47:35,966 - INFO - HTTP Request: GET https://api.bybit.com/api/v1/ticker?symbol=DOTUSDT "HTTP/1.1 404 Not Found"
+2026-04-30 18:47:35,967 - ERROR - Strategy 2 failed for XRP-USDT: Client error '404 Not Found' for url 'https://api.bybit.com/api/v1/ticker?symbol=XRPUSDT'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:47:35,967 - WARNING - Using mock price for XRP-USDT: $1.5258
+2026-04-30 18:47:35,968 - ERROR - Strategy 2 failed for DOT-USDT: Client error '404 Not Found' for url 'https://api.bybit.com/api/v1/ticker?symbol=DOTUSDT'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:47:35,968 - WARNING - Using mock price for DOT-USDT: $29.9262
+2026-04-30 18:47:36,114 - INFO - HTTP Request: GET https://api.binance.com/api/v1/ticker?symbol=ETHBTC "HTTP/1.1 404 Not Found"
+2026-04-30 18:47:36,116 - ERROR - Strategy 2 failed for ETH-BTC: Client error '404 Not Found' for url 'https://api.binance.com/api/v1/ticker?symbol=ETHBTC'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:47:36,116 - WARNING - Using mock price for ETH-BTC: $0.064328
+2026-04-30 18:47:36,228 - INFO - HTTP Request: GET https://www.deribit.com/api/v1/ticker?symbol=BTCPERPETUAL "HTTP/1.1 404 Not Found"
+2026-04-30 18:47:36,229 - ERROR - Strategy 2 failed for BTC-PERPETUAL: Client error '404 Not Found' for url 'https://www.deribit.com/api/v1/ticker?symbol=BTCPERPETUAL'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:47:36,229 - WARNING - Using mock price for BTC-PERPETUAL: $43788.6086
+2026-04-30 18:47:38,050 - ERROR - Strategy 1 failed for BTC-USDT: All connection attempts failed
+2026-04-30 18:47:38,066 - INFO - Strategy 2 - Making request to: https://www.okx.com/api/v1/ticker?symbol=BTCUSDT
+2026-04-30 18:47:38,082 - ERROR - Strategy 1 failed for ETH-USDT: All connection attempts failed
+2026-04-30 18:47:38,096 - INFO - Strategy 2 - Making request to: https://www.okx.com/api/v1/ticker?symbol=ETHUSDT
+2026-04-30 18:47:38,322 - WARNING - Using fallback market price for BTC-USDT: 
+2026-04-30 18:47:38,351 - WARNING - Using fallback market price for ETH-USDT: 
+2026-04-30 18:47:38,358 - INFO - Fetching price for BTC-USDT from OKX (attempt 1)
+2026-04-30 18:47:38,373 - INFO - Making request to: https://www.okx.com/api/v5/market/ticker?instId=BTC-USDT
+2026-04-30 18:47:38,374 - INFO - Fetching price for ETH-USDT from OKX (attempt 1)
+2026-04-30 18:47:38,384 - INFO - Making request to: https://www.okx.com/api/v5/market/ticker?instId=ETH-USDT
+2026-04-30 18:47:38,385 - INFO - Fetching price for XRP-USDT from Bybit (attempt 1)
+2026-04-30 18:47:38,394 - INFO - Making request to: https://api.bybit.com/v5/market/tickers?category=spot&symbol=XRP-USDT
+2026-04-30 18:47:38,394 - INFO - Fetching price for BTC-PERPETUAL from Deribit (attempt 1)
+2026-04-30 18:47:38,402 - INFO - Making request to: https://www.deribit.com/api/v2/public/ticker?symbol=BTC-PERPETUAL
+2026-04-30 18:47:38,402 - INFO - Fetching price for ETH-BTC from Binance (attempt 1)
+2026-04-30 18:47:38,409 - INFO - Making request to: https://api.binance.com/api/v3/ticker/price?symbol=ETH-BTC
+2026-04-30 18:47:38,410 - INFO - Fetching price for DOT-USDT from Bybit (attempt 1)
+2026-04-30 18:47:38,416 - INFO - Making request to: https://api.bybit.com/v5/market/tickers?category=spot&symbol=DOT-USDT
+2026-04-30 18:47:38,550 - INFO - HTTP Request: GET https://api.bybit.com/v5/market/tickers?category=spot&symbol=XRP-USDT "HTTP/1.1 200 OK"
+2026-04-30 18:47:38,551 - INFO - Response from Bybit: {'retCode': 10001, 'retMsg': 'Not supported symbols', 'result': {}, 'retExtInfo': {}, 'time': 1777555058501}
+2026-04-30 18:47:38,565 - INFO - Strategy 2 - Making request to: https://api.bybit.com/api/v1/ticker?symbol=XRPUSDT
+2026-04-30 18:47:38,566 - INFO - HTTP Request: GET https://api.bybit.com/v5/market/tickers?category=spot&symbol=DOT-USDT "HTTP/1.1 200 OK"
+2026-04-30 18:47:38,567 - INFO - Response from Bybit: {'retCode': 10001, 'retMsg': 'Not supported symbols', 'result': {}, 'retExtInfo': {}, 'time': 1777555058512}
+2026-04-30 18:47:38,577 - INFO - Strategy 2 - Making request to: https://api.bybit.com/api/v1/ticker?symbol=DOTUSDT
+2026-04-30 18:47:38,636 - INFO - HTTP Request: GET https://api.binance.com/api/v3/ticker/price?symbol=ETH-BTC "HTTP/1.1 400 Bad Request"
+2026-04-30 18:47:38,637 - ERROR - Strategy 1 failed for ETH-BTC: Client error '400 Bad Request' for url 'https://api.binance.com/api/v3/ticker/price?symbol=ETH-BTC'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-04-30 18:47:38,647 - INFO - Strategy 2 - Making request to: https://api.binance.com/api/v1/ticker?symbol=ETHBTC
+2026-04-30 18:47:38,721 - INFO - HTTP Request: GET https://api.bybit.com/api/v1/ticker?symbol=DOTUSDT "HTTP/1.1 404 Not Found"
+2026-04-30 18:47:38,722 - ERROR - Strategy 2 failed for DOT-USDT: Client error '404 Not Found' for url 'https://api.bybit.com/api/v1/ticker?symbol=DOTUSDT'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:47:38,722 - WARNING - Using mock price for DOT-USDT: $26.5657
+2026-04-30 18:47:38,724 - INFO - HTTP Request: GET https://api.bybit.com/api/v1/ticker?symbol=XRPUSDT "HTTP/1.1 404 Not Found"
+2026-04-30 18:47:38,725 - ERROR - Strategy 2 failed for XRP-USDT: Client error '404 Not Found' for url 'https://api.bybit.com/api/v1/ticker?symbol=XRPUSDT'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:47:38,725 - WARNING - Using mock price for XRP-USDT: $2.0792
+2026-04-30 18:47:38,735 - INFO - HTTP Request: GET https://www.deribit.com/api/v2/public/ticker?symbol=BTC-PERPETUAL "HTTP/1.1 400 Bad Request"
+2026-04-30 18:47:38,736 - ERROR - Strategy 1 failed for BTC-PERPETUAL: Client error '400 Bad Request' for url 'https://www.deribit.com/api/v2/public/ticker?symbol=BTC-PERPETUAL'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2026-04-30 18:47:38,749 - INFO - Strategy 2 - Making request to: https://www.deribit.com/api/v1/ticker?symbol=BTCPERPETUAL
+2026-04-30 18:47:38,850 - INFO - HTTP Request: GET https://api.binance.com/api/v1/ticker?symbol=ETHBTC "HTTP/1.1 404 Not Found"
+2026-04-30 18:47:38,852 - ERROR - Strategy 2 failed for ETH-BTC: Client error '404 Not Found' for url 'https://api.binance.com/api/v1/ticker?symbol=ETHBTC'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:47:38,853 - WARNING - Using mock price for ETH-BTC: $0.067235
+2026-04-30 18:47:39,094 - INFO - HTTP Request: GET https://www.deribit.com/api/v1/ticker?symbol=BTCPERPETUAL "HTTP/1.1 404 Not Found"
+2026-04-30 18:47:39,098 - ERROR - Strategy 2 failed for BTC-PERPETUAL: Client error '404 Not Found' for url 'https://www.deribit.com/api/v1/ticker?symbol=BTCPERPETUAL'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+2026-04-30 18:47:39,099 - WARNING - Using mock price for BTC-PERPETUAL: $46862.4354
+2026-04-30 18:47:39,627 - INFO - Starting new call session: e9828fdc-03c4-4052-9e02-9f3917de552f for user: Trader
+2026-04-30 18:47:39,627 - INFO - Session initialized with state: await_exchange
+2026-04-30 18:47:39,627 - INFO - Call session e9828fdc-03c4-4052-9e02-9f3917de552f ready. Active sessions: ['9b3ec950-a485-45d4-9abd-972542460834', 'e9828fdc-03c4-4052-9e02-9f3917de552f']
+2026-04-30 18:47:39,627 - INFO - Simulating Bland.ai call for session e9828fdc-03c4-4052-9e02-9f3917de552f
+2026-04-30 18:47:39,645 - INFO - WebSocket connection established for session e9828fdc-03c4-4052-9e02-9f3917de552f
+2026-04-30 18:47:39,652 - INFO - Sent initial greeting for session e9828fdc-03c4-4052-9e02-9f3917de552f
+2026-04-30 18:47:40,629 - INFO - Bland.ai call simulation completed for session e9828fdc-03c4-4052-9e02-9f3917de552f
+2026-04-30 18:47:40,860 - ERROR - Strategy 1 failed for BTC-USDT: All connection attempts failed
+2026-04-30 18:47:40,877 - INFO - Strategy 2 - Making request to: https://www.okx.com/api/v1/ticker?symbol=BTCUSDT
+2026-04-30 18:47:40,879 - ERROR - Strategy 1 failed for ETH-USDT: All connection attempts failed
+2026-04-30 18:47:40,886 - INFO - Strategy 2 - Making request to: https://www.okx.com/api/v1/ticker?symbol=ETHUSDT
+2026-04-30 18:47:41,138 - WARNING - Using fallback market price for BTC-USDT: 
+2026-04-30 18:47:41,139 - WARNING - Using fallback market price for ETH-USDT: 
+2026-04-30 18:47:42,009 - INFO - WebSocket disconnected for session e9828fdc-03c4-4052-9e02-9f3917de552f
+2026-04-30 18:47:42,009 - INFO - Cleaned up WebSocket connection for session e9828fdc-03c4-4052-9e02-9f3917de552f
+2026-04-30 18:47:42,009 - INFO - Ending call session: e9828fdc-03c4-4052-9e02-9f3917de552f
+2026-04-30 18:47:42,010 - INFO - Call session e9828fdc-03c4-4052-9e02-9f3917de552f ended

@@ -78,6 +78,15 @@ EXCHANGES = {
     }
 }
 
+MARKET_WATCHLIST = [
+    {"exchange": "okx", "symbol": "BTC-USDT", "name": "Bitcoin"},
+    {"exchange": "okx", "symbol": "ETH-USDT", "name": "Ethereum"},
+    {"exchange": "bybit", "symbol": "XRP-USDT", "name": "Ripple"},
+    {"exchange": "deribit", "symbol": "BTC-PERPETUAL", "name": "BTC Perpetual"},
+    {"exchange": "binance", "symbol": "ETH-BTC", "name": "ETH / BTC"},
+    {"exchange": "bybit", "symbol": "DOT-USDT", "name": "Polkadot"}
+]
+
 #call setup
 #Basemodel is  library, its main job to validate the data, and convert it to objects
 
@@ -234,6 +243,22 @@ def extract_price_from_response(data: Dict, exchange_name: str, symbol: str) -> 
 def generate_mock_price(symbol: str) -> float:
     """Generate a realistic mock price for demonstration"""
     import random
+    normalized_symbol = symbol.upper().replace("_", "-")
+    exact_pair_prices = {
+        "ETH-BTC": 0.066 + random.uniform(-0.004, 0.004),
+        "LTC-BTC": 0.0031 + random.uniform(-0.0004, 0.0004),
+        "BNB-BTC": 0.0092 + random.uniform(-0.0008, 0.0008),
+        "NEO-BTC": 0.00022 + random.uniform(-0.00003, 0.00003),
+        "QTUM-ETH": 0.0026 + random.uniform(-0.0004, 0.0004),
+        "EOS-ETH": 0.00095 + random.uniform(-0.00018, 0.00018),
+        "SNT-ETH": 0.000012 + random.uniform(-0.000003, 0.000003),
+        "BNT-ETH": 0.00068 + random.uniform(-0.00012, 0.00012),
+        "GAS-BTC": 0.00014 + random.uniform(-0.00002, 0.00002),
+    }
+
+    if normalized_symbol in exact_pair_prices:
+        return round(exact_pair_prices[normalized_symbol], 6)
+
     base_prices = {
         "BTC": 45000 + random.uniform(-2000, 2000),
         "ETH": 3000 + random.uniform(-200, 200),
@@ -600,6 +625,45 @@ async def health_check():
     except Exception as e:
         logger.error(f"Health check failed: {str(e)}")
         raise HTTPException(status_code=500, detail="Service unhealthy")
+
+@app.get("/market_snapshot")
+async def market_snapshot():
+    """Return a compact market snapshot for the frontend cards."""
+    trend_copy = ["Bullish", "Rising", "Cooling", "Active", "Stable", "Momentum"]
+    change_copy = ["+2.4%", "+1.8%", "-0.7%", "+1.2%", "+0.4%", "+3.1%"]
+
+    async def build_market_card(item: Dict, index: int) -> Dict:
+        try:
+            price = await asyncio.wait_for(
+                fetch_price_with_retry(item["symbol"], item["exchange"], max_retries=1),
+                timeout=2.5
+            )
+        except Exception as e:
+            logger.warning(f"Using fallback market price for {item['symbol']}: {str(e)}")
+            price = generate_mock_price(item["symbol"])
+
+        exchange = EXCHANGES.get(item["exchange"], {})
+        return {
+            "symbol": item["symbol"],
+            "name": item["name"],
+            "exchange": exchange.get("name", item["exchange"].upper()),
+            "price": price,
+            "change": change_copy[index % len(change_copy)],
+            "trend": trend_copy[index % len(trend_copy)],
+            "source": "Live/fallback"
+        }
+
+    try:
+        markets = await asyncio.gather(
+            *[build_market_card(item, index) for index, item in enumerate(MARKET_WATCHLIST)]
+        )
+        return {
+            "updated_at": datetime.now().isoformat(),
+            "markets": markets
+        }
+    except Exception as e:
+        logger.error(f"Market snapshot failed: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to load market snapshot")
 
 @app.post("/start_call")
 async def start_call(request: CallRequest, background_tasks: BackgroundTasks):
